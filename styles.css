@@ -1,0 +1,140 @@
+<style>
+
+:root {
+  --blue:#1f4e9d;
+  --bg-blue:#edf4ff;
+  --red:#cf4a37;
+  --bg-red:#fee2de;
+  --bg-gray:#EEE;
+}
+:visited {
+  color:blue;
+}
+#this-body {
+  font:14px system-ui;
+  padding:0 20px 20px 20px;
+}
+#this-body > .filled {
+  background-color:#F5f5f5;
+  margin-top:10px;
+}
+.heading {
+  font:18px Georgia;
+  color:var(--red);
+  margin-bottom:5px;
+}
+.filled {
+  background-color:white;
+  color:var(--blue);
+  text-decoration:none !important;
+  padding:15px;
+  border-radius:10px;
+  transition:all 0.3s;
+}
+.show-skill {
+  display:initial !important;
+}
+#skill-menu-div {
+  text-align:center;
+  border-top:1px solid #CCC;
+  border-bottom:1px solid #CCC;
+  padding:10px 0;
+}
+#skill-menu {
+  display:flex;
+  justify-content:center;
+  white-space:nowrap;
+}
+#skill-menu .item {
+  padding:8px 15px;
+  border-radius:50px;
+  transition:all 0.3s;
+}
+#skill-menu .item:hover {
+  color:var(--red);
+  cursor:pointer;
+}
+#skill-menu .item.selected {
+  background-color:var(--blue);
+  color:white; 
+}
+#skill-title {
+  font:30px Georgia;
+  margin:10px 0;
+  text-align:center;
+}
+#skill-html img {
+  border:1px solid #CCC;
+  box-shadow:3px 3px 3px #AAA;
+  width:70%;
+}
+.footnote {
+  font-size:10px;
+}
+#howtos {
+  display:flex;
+  flex-direction:column;
+  gap:25px;
+}
+#howtos .group .titling {
+  display:flex;
+  gap:5px;
+  margin-bottom:5px;
+  align-items:center;
+}
+#howtos .group .titling, #howtos .group .titling .material-symbols-outlined {
+  font-size:18px;
+}
+#howtos a {
+  display:block;
+  margin-top:5px;
+  color:blue;
+  text-decoration:underline;
+}
+#howtos a:hover {
+  cursor:pointer;
+  color:var(--red);
+}
+#howtos a .material-symbols-outlined {
+  font-size:14px;
+  display:inline-block;
+  margin-left:5px;
+}
+#howtos .bubble {
+  display:none;
+}
+#howtos .bubble.show {
+  display:block;
+}
+#howtos .instr {
+  font:16px Georgia;
+  margin:5px;
+}
+#howtos .instr ol {
+  padding:0 0 0 15px;
+  margin:0;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+#resources {
+  list-style-type:none;
+  padding:0;
+  display:flex;
+  flex-direction:column;
+  gap:5px;
+}
+#resources li a {
+  display:flex;
+  gap:10px;
+}
+#resources li a:hover {
+  color:var(--red);
+}
+#resources li a .name {
+  font-size:16px;
+  width:20%;
+  min-width:150px;
+}
+
+</style>
