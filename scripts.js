@@ -1,5 +1,3 @@
-<script>
-    
 /*
 img src: '/ama/orig/operating_units/11' + path
 let url = window.location.href;
@@ -246,5 +244,3 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
 });
-
-</script>
