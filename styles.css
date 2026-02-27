@@ -8,6 +8,32 @@
 :visited {
   color:blue;
 }
+.container {
+  width:100%;
+  max-width:1000px;
+  padding:0 20px;
+  box-sizing:border-box;
+}
+header {
+  position:sticky;
+}
+header .container {
+  padding:10px 0;
+  display:flex;
+}
+header .container > :first-child {
+  display:flex;
+  justify-content:flex-start;
+  align-items:center;
+}
+header .container > :last-child {
+  display:flex;
+  justify-content:flex-end;
+  align-items:center;
+}
+
+
+
 #this-body {
   font:14px system-ui;
   padding:0 20px 20px 20px;
