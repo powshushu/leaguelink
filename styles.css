@@ -11,15 +11,18 @@
 .container {
   width:100%;
   max-width:1000px;
-  padding:0 20px;
+  padding:20px 10px;
   box-sizing:border-box;
 }
 header {
   position:sticky;
+  top:0;
+  background:var(--blue);
+  color:white;
 }
 header .container {
-  padding:10px 0;
   display:flex;
+  justify-content:space-between;
 }
 header .container > :first-child {
   display:flex;
