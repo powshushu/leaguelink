@@ -5,7 +5,21 @@
 .hide {
   display:none;
 }
-
+.main-font {
+  font-family:Georgia, serif;
+}
+.alt-font {
+  font-family:Century Gothic, Verdana, Arial;
+}
+.button {
+  display:inline-block;
+  padding: 5px 10px;
+  border-radius: 5px;
+  background: var(--red);
+  color: white;
+  font-size:12px;
+  text-decoration: none;
+}
 
 /* in order */
 :root {
@@ -20,7 +34,7 @@
 }
 body {
   margin:0;
-  font-family:Century Gothic, Verdana, Arial;
+  font-family:Georgia, serif;
 }
 .container {
   width:100%;
@@ -55,6 +69,9 @@ header .container > :last-child {
 }
 header .page-logo {
   height:1.5em;
+  padding: 10px;
+  background: white;
+  border-radius: 5px;
 }
 header .page-title {
   font-size:20px;
@@ -107,7 +124,6 @@ main > :not(:first-child) {
 .faq .q {
   color:blue;
   text-decoration:underline;
-  font-family:Georgia, serif;
 }
 .faq .q:hover {
   cursor:pointer;
@@ -127,8 +143,15 @@ main > :not(:first-child) {
   gap: 10px;
 transition:all 0.3s;
 }
+.faq .a .a-opts {
+  display:flex;
+  gap:10px;
+}
+.faq .a .more-help {
+  font-size:12px;
+}
 .faq .a.content {
-  font:16px Georgia;
+  font-size:16px;
   background-color: var(--bg-red);
   color: #333;
   padding: 20px 10px;
@@ -140,14 +163,6 @@ transition:all 0.3s;
   display:flex;
   flex-direction:column;
   gap:8px;
-}
-.faq .a .new-window {
-  display:inline-block;
-  padding: 5px 10px;
-  border-radius: 5px;
-  background: var(--blue);
-  color: white;
-  text-decoration: none;
 }
 .faq .a iframe {
   border: 1px solid black;
