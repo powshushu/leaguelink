@@ -51,7 +51,7 @@ function popFaq(faq) {
 }
 
 function toggleFaq(faqId, show) {
-  const Faq = document.querySelector('.faq[faq-id=' & faqId & ']');
+  const Faq = document.querySelector('.faq[faq-id="' + faqId + '"]');
   if (show)
     Faq.classList.remove('hide');
   else
@@ -95,7 +95,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const searchString = e.target.value.toLowerCase();
     faqs.forEach(faq => toggleFaq(faq.id, faq.q.toLowerCase().includes(searchString)
       || faq.a.toLowerCase().includes(searchString)
-      || faq.tags.toLowerCase().includes(searchString);
-    ));
+      || faq.tags.toLowerCase().includes(searchString)));
   };
 });

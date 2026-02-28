@@ -33,3 +33,4 @@ const faqs = [
 , {id:31, q:"How do I use the Parent/Guardian Consent Step for the Assisteen Intake Checklist?", a:"Ensure you add two steps in your Assisteen Intake checklist:\n1. Parent/Guardian Consent Request - This step prompts the Assisteen to enter their parent/guardian information.\n2. Parent/Guardian Consent Completed - This step sends an email to the parent/guardian. Once the parent/guardian responds, the step will be completed.", tags:"Membership,Checklist,Assisteens,Admin,Admin (LL Initial Setup)"}
 
 ];
+
