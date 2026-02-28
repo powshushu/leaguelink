@@ -96,9 +96,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // bind: search
   document.getElementById('search-box').oninput = e => {
-    const searchString = e.target.value.toLowerCase();
-    faqs.forEach(faq => toggleFaq(faq.id, faq.q.toLowerCase().includes(searchString)
-      || faq.a.toLowerCase().includes(searchString)
-      || faq.tags.toLowerCase().includes(searchString)));
+    const arrayStrings = e.target.value.toLowerCase().split(' ');
+    faqs.forEach(faq => toggleFaq(faq.id, arrayStrings.every(str =>
+      faq.q.toLowerCase().includes(str)
+      || faq.a.toLowerCase().includes(str)
+      || faq.tags.toLowerCase().includes(str)
+    )));
   };
 });
