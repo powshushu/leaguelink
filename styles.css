@@ -20,6 +20,7 @@
 }
 body {
   margin:0;
+  font-family:Century Gothic, Verdana, Arial;
 }
 .container {
   width:100%;
@@ -53,7 +54,7 @@ header .container > :last-child {
   justify-content:flex-end;
 }
 header .page-title {
-  font:20px Century Gothic, Verdana, Arial;
+  font-size:20px;
 }
 header #search-box {
   box-sizing: border-box;  
