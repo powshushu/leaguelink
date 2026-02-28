@@ -33,7 +33,17 @@ function popAnswer(Faq) {
   let A = document.createElement('div');
   A.classList.add('a');
   Faq.appendChild(A);
+
+  let Aopts = document.createElement('div');
+  Aopts.classList.add('a-opts');
+  A.appendChild(Aopts);
   
+  let MoreHelp = document.createElement('a');
+  MoreHelp.setAttribute('href', 'mailto:ps.carreon@gmail.com?subject=LeagueLink Help - FAQ # ' + faqId + '&subject=Hi I need more help with this. [ENTER QUESTION HERE]%0D%0A%0D%0AQuestion: ' + faq.q);
+  MoreHelp.classList.add('more-help');
+  MoreHelp.innerHTML = 'Need more help with this? Let us know.';
+  Aopts.appendChild(MoreHelp);
+
   let aArray = faq.a.split('\n');
   if(aArray.length > 1) {
     A.innerHTML = '<ol>' + aArray.map(i => '<li>' + i + '</li>').join("\r\n") + '</ol>';
@@ -43,22 +53,12 @@ function popAnswer(Faq) {
     const aString = aArray.pop();
     if (aString.startsWith('http')) {
       
-      let Aopts = document.createElement('div');
-      Aopts.classList.add('a-opts');
-      A.appendChild(Aopts);
-      
       let NewWindow = document.createElement('a');
       NewWindow.setAttribute('href', aString);
       NewWindow.setAttribute('target', '_blank');
       NewWindow.classList.add('button');
       NewWindow.innerHTML = 'Open in New Window';
       Aopts.appendChild(NewWindow);
-
-      let MoreHelp = document.createElement('a');
-      MoreHelp.setAttribute('href', 'mailto:ps.carreon@gmail.com?subject=LeagueLink Help - FAQ # ' + faqId + '&subject=Hi I need more help with this. [ENTER QUESTION HERE]%0D%0A%0D%0AQuestion: ' + faq.q);
-      MoreHelp.classList.add('more-help');
-      MoreHelp.innerHTML = 'Need more help with this? Let us know.';
-      Aopts.appendChild(MoreHelp);
 
       let iframe = document.createElement('iframe');
       iframe.setAttribute('src', aString);
