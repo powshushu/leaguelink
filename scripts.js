@@ -56,4 +56,13 @@ document.addEventListener('DOMContentLoaded', function() {
     };
   });
 
+  // bind filter icon
+  document.getElementById('filter-icon').onclick = e => {
+    const filterMenu = document.getElementById('filter-menu');
+    if (filterMenu.classList.contains('hide'))
+      filterMenu.classList.remove('hide');
+    else
+      filterMenu.classList.add('hide');
+  };
+
 });
