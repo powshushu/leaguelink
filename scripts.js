@@ -30,17 +30,18 @@ function popFaq(faq) {
   let aArray = faq.a.split('\n');
   if(aArray.length > 1) {
     a.innerHTML = '<ol>' + aArray.map(i => '<li>' + i + '</li>').join("\r\n") + '</ol>';
-    a.classList.add('a');
+    a.classList.add('content');
   }
   else {
     const aString = aArray.pop();
     if (aString.startsWith('http')) {
       let iframe = document.createElement('iframe');
       iframe.setAttribute('src', aString);
-      a.classList.add('a');
+      a.appendChild(iframe);
     }
     else {
       a.innerHTML = aString;
+      a.classList.add('content');
     }
   }
 
