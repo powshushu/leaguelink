@@ -24,15 +24,25 @@ function popFaq(faq) {
 
   //answer
   let a = document.createElement('div');
-  a.classList.add('a', 'instr', 'bubble', 'filled');
+  a.classList.add('a');
+  Faq.appendChild(a);
   
   let aArray = faq.a.split('\n');
   if(aArray.length > 1) {
     a.innerHTML = '<ol>' + aArray.map(i => '<li>' + i + '</li>').join("\r\n") + '</ol>';
+    a.classList.add('a');
   }
-  else
-    a.innerHTML = aArray.pop();
-  Faq.appendChild(a);
+  else {
+    const aString = aArray.pop();
+    if (aString.startsWith('http')) {
+      let iframe = document.createElement('iframe');
+      iframe.setAttribute('src', aString);
+      a.classList.add('a');
+    }
+    else {
+      a.innerHTML = aString;
+    }
+  }
 
 }
 
@@ -59,10 +69,14 @@ document.addEventListener('DOMContentLoaded', function() {
   // bind filter icon
   document.getElementById('filter-icon').onclick = e => {
     const filterMenu = document.getElementById('filter-menu');
-    if (filterMenu.classList.contains('hide'))
+    if (filterMenu.classList.contains('hide')) {
       filterMenu.classList.remove('hide');
-    else
+      e.target.classList.add('open');
+    }
+    else {
       filterMenu.classList.add('hide');
+      e.target.classList.remove('open');
+    }
   };
 
 });
