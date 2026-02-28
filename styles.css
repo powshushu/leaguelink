@@ -20,6 +20,10 @@
   font-size:12px;
   text-decoration: none;
 }
+.button:hover {
+  cursor:pointer;
+  background: var(--blue);
+}
 
 /* in order */
 :root {
@@ -166,10 +170,12 @@ transition:all 0.3s;
   flex-direction:column;
   gap:8px;
 }
+.faq .a:has(iframe) {
+  width:calc(100% - 40px);
+}
 .faq .a iframe {
   border: 1px solid black;
   box-shadow: 3px 3px 3px gray;
-  width:calc(100% - 40px);
   min-height:600px;
 }
 
