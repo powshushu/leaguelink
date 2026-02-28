@@ -1,7 +1,10 @@
+var showIds = [];
+
 function popFaq(faq) {
 
   let Faq = document.createElement('div');
   Faq.classList.add('faq');
+  Faq.setAttribute('faq-id', faq.id);
   document.querySelector('.faq-box').appendChild(Faq);
 
   let qRow = document.createElement('div');
@@ -47,6 +50,14 @@ function popFaq(faq) {
 
 }
 
+function toggleFaq(faqId, show) {
+  const Faq = document.querySelector('.faq[faq-id=' & faqId & ']');
+  if (show)
+    Faq.classList.remove('hide');
+  else
+    Faq.classList.add('hide');
+}
+
 function hideAnswers() {
   document.querySelectorAll('.faq-box .a').forEach(el => el.classList.add('hide'));
 }
@@ -55,7 +66,7 @@ document.addEventListener('DOMContentLoaded', function() {
   faqs.forEach(popFaq);
   hideAnswers();
 
-  // bind click faq
+  // show answer
   document.querySelectorAll('.faq-box .q-row').forEach(qrow => {
     qrow.onclick = e => {
       const a = e.target.closest('.faq').querySelector('.a');
@@ -63,11 +74,10 @@ document.addEventListener('DOMContentLoaded', function() {
       hideAnswers();
       if (isHidden)
         a.classList.remove('hide');
-      console.log('show answer');
     };
   });
 
-  // bind filter icon
+  // show filter menu
   document.getElementById('filter-icon').onclick = e => {
     const filterMenu = document.getElementById('filter-menu');
     if (filterMenu.classList.contains('hide')) {
@@ -80,4 +90,12 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   };
 
+  // search
+  document.getElementById('search-box').oninput = e => {
+    const searchString = e.target.value.toLowerCase();
+    faqs.forEach(faq => toggleFaq(faq.id, faq.q.toLowerCase().includes(searchString)
+      || faq.a.toLowerCase().includes(searchString)
+      || faq.tags.toLowerCase().includes(searchString);
+    );
+  };
 });

@@ -116,14 +116,16 @@ main > :not(:first-child) {
   padding:3px;
   background:#EEE;
 }
+.faq .a {
+  margin-top:5px;
+  transition:all 0.3s;
+}
 .faq .a.content {
   font:16px Georgia;
-  margin-top:5px;
   background-color: var(--bg-red);
   color: #333;
   padding: 20px 10px;
   border-radius: 5px;
-  transition:all 0.3s;
 }
 .faq .a.content ol {
   padding:0 0 0 15px;
@@ -135,7 +137,7 @@ main > :not(:first-child) {
 .faq .a iframe {
   border: 1px solid black;
   box-shadow: 3px 3px 3px gray;
-  width: 100%;
-  min-height: 300px;
+  width:calc(100% - 40px);
+  min-height:600px;
 }
 
