@@ -55,7 +55,7 @@ header .container > :last-child {
 header .page-title {
   font:20px Century Gothic, Verdana, Arial;
 }
-header .search-box {
+header #search-box {
   box-sizing: border-box;  
   padding: 1em 2em;
   width: 100%;
