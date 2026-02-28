@@ -53,6 +53,9 @@ header .container > :first-child {
 header .container > :last-child {
   justify-content:flex-end;
 }
+header .page-logo {
+  height:1.5em;
+}
 header .page-title {
   font-size:20px;
 }
