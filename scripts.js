@@ -47,7 +47,7 @@ function popAnswer(Faq) {
       Anchor.setAttribute('target', '_blank');
       Anchor.classList.add('new-window');
       Anchor.innerHTML = 'Open in New Window';
-      Faq.appendChild(Anchor);
+      A.appendChild(Anchor);
 
       let iframe = document.createElement('iframe');
       iframe.setAttribute('src', aString);
