@@ -96,6 +96,6 @@ document.addEventListener('DOMContentLoaded', function() {
     faqs.forEach(faq => toggleFaq(faq.id, faq.q.toLowerCase().includes(searchString)
       || faq.a.toLowerCase().includes(searchString)
       || faq.tags.toLowerCase().includes(searchString);
-    );
+    ));
   };
 });
