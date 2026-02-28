@@ -118,7 +118,10 @@ main > :not(:first-child) {
 }
 .faq .a {
   margin-top:5px;
-  transition:all 0.3s;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+transition:all 0.3s;
 }
 .faq .a.content {
   font:16px Georgia;
@@ -133,6 +136,14 @@ main > :not(:first-child) {
   display:flex;
   flex-direction:column;
   gap:8px;
+}
+.faq .a .new-window {
+  display:inline-block;
+  padding: 5px 10px;
+  border-radius: 5px;
+  background: var(--blue);
+  color: white;
+  text-decoration: none;
 }
 .faq .a iframe {
   border: 1px solid black;
