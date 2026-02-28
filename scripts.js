@@ -42,6 +42,13 @@ function popAnswer(Faq) {
   else {
     const aString = aArray.pop();
     if (aString.startsWith('http')) {
+      let Anchor = document.createElement('a');
+      Anchor.setAttribute('href', aString);
+      Anchor.setAttribute('target', '_blank');
+      Anchor.classList.add('new-window');
+      Anchor.innerHTML = 'Open in New Window';
+      Faq.appendChild(Anchor);
+
       let iframe = document.createElement('iframe');
       iframe.setAttribute('src', aString);
       A.appendChild(iframe);
