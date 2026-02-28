@@ -25,6 +25,8 @@ body {
   width:100%;
   max-width:1000px;
   box-sizing:border-box;
+  margin-left:auto;
+  margin-right:auto;
 }
 header {
   position:sticky;
@@ -130,7 +132,7 @@ main > :not(:first-child) {
   flex-direction:column;
   gap:8px;
 }
-.faq iframe.a {
+.faq .a iframe {
   border: 1px solid black;
   box-shadow: 3px 3px 3px gray;
   width: 100%;
