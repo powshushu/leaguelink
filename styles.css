@@ -146,6 +146,8 @@ transition:all 0.3s;
 .faq .a .a-opts {
   display:flex;
   gap:10px;
+  align-items:center;
+  justify-content: flex-end;
 }
 .faq .a .more-help {
   font-size:12px;
