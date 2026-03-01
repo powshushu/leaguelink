@@ -1,3 +1,8 @@
+/*
+DO NOT ENTER QUESTIONS DIRECTLY HERE. ENTER THEM IN THE ALT GOOGLE DRIVE, THEN COPY THE CODE FROM THAT SHEET:
+https://docs.google.com/spreadsheets/d/19khT-ikYMGm2o9fahbKq1aHtGj-_kiY8CQ4I0LLgqUM/edit?gid=0#gid=0
+*/
+
 const faqs = [
 
 {id:1, q:"How do I view/update my Profile?", a:"In the top nav click 'My Profile'.", tags:"General,Standard User"}
@@ -31,6 +36,7 @@ const faqs = [
 , {id:29, q:"What do prospective Assisteens see when they get to the Parent/Guardian Consent Step?", a:"https://scribehow.com/viewer/Assisteen_Guardian_Consent_Process__3eF6euorRbqp7Xy0CcYIcQ", tags:"Membership,Checklist,Assisteens,Admin,Admin (LL Initial Setup)"}
 , {id:30, q:"How do I delete/remove a member?", a:"https://digitalcheetah.zendesk.com/hc/en-us/articles/38789154154779-How-to-Delete-an-Account", tags:"Accounts,Admin,Admin (LL Initial Setup)"}
 , {id:31, q:"How do I use the Parent/Guardian Consent Step for the Assisteen Intake Checklist?", a:"Ensure you add two steps in your Assisteen Intake checklist:\n1. Parent/Guardian Consent Request - This step prompts the Assisteen to enter their parent/guardian information.\n2. Parent/Guardian Consent Completed - This step sends an email to the parent/guardian. Once the parent/guardian responds, the step will be completed.", tags:"Membership,Checklist,Assisteens,Admin,Admin (LL Initial Setup)"}
+, {id:32, q:"If a member joins late in the membership year and we let them know that their dues will apply to the following year as well, how do we record this?", a:"Navigate to their profile. Click Administration > Member Search > find their name and click on it.\nScroll about a page down to 'Volunteer/Employee Status'.\nClick 'Add New Status'.\nSet 'Status Name' to Active Member and 'Effective Date' to June 1 of the next membership year.", tags:"Membership,Admin"}
 
 ];
 

@@ -11,13 +11,14 @@
 .alt-font {
   font-family:Century Gothic, Verdana, Arial;
 }
-.button {
+.button, .button:visited {
   display:inline-block;
   padding: 5px 10px;
   border-radius: 5px;
   background: var(--red);
   color: white;
   font-size:12px;
+  font-family:Century Gothic, Verdana, Arial;
   text-decoration: none;
 }
 .button:hover {

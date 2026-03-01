@@ -1,3 +1,5 @@
+const helpEmail = 'ps.carreon@gmail.com';
+
 function popQuestion(faq) {
 
   let Faq = document.createElement('div');
@@ -39,7 +41,7 @@ function popAnswer(Faq) {
   A.appendChild(Aopts);
   
   let MoreHelp = document.createElement('a');
-  MoreHelp.setAttribute('href', 'mailto:ps.carreon@gmail.com?subject=LeagueLink Help - FAQ # ' + faqId + '&subject=Hi I need more help with this. [ENTER QUESTION HERE]%0D%0A%0D%0AQuestion: ' + faq.q);
+  MoreHelp.setAttribute('href', 'mailto:' + helpEmail + '?subject=LeagueLink Help - FAQ # ' + faqId + '&body=Hi! I need more help with this.%0D%0A%0D%0A[ENTER QUESTION HERE]%0D%0A%0D%0AQuestion: ' + faq.q);
   MoreHelp.classList.add('more-help');
   MoreHelp.innerHTML = 'Need more help with this? Let us know.';
   Aopts.appendChild(MoreHelp);
