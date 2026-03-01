@@ -3,7 +3,7 @@
   font-size:10px;
 }
 .hide {
-  display:none;
+  display:none !important;
 }
 .main-font {
   font-family:Georgia, serif;
@@ -91,6 +91,7 @@ header #filter-icon {
   cursor:pointer;
   padding:5px;
   border-radius:5px;
+  border:2px solid white;
 }
 header #filter-icon.open {
   background: white;
@@ -98,7 +99,7 @@ header #filter-icon.open {
 }
 header #filter-menu {
   display: flex;
-  justify-content: stretch;
+  justify-content: flex-end;
   background:var(--red);
   padding-bottom:10px;
 }

@@ -124,9 +124,9 @@ document.addEventListener('DOMContentLoaded', function() {
     .filter(tag => !userTypes.includes(tag))
     .sort()
   ].forEach(tag => {
-    let Tag = document.createElement('div');
-    Tag.classList.add('opt');
+    let Tag = document.createElement('option');
     Tag.innerHTML = tag;
+    Tag.setAttribute('value', tag);
     if (userTypes.includes(tag))
       document.getElementById('user-types').appendChild(Tag);
     else
@@ -168,12 +168,10 @@ document.addEventListener('DOMContentLoaded', function() {
   };
 
   // bind: click filter menu
-  document.getElementById('filter-menu').onclick = e => {
-    if (e.target.classList.contains('opt')) {
-      const groupId = e.target.closest('[id]').getAttribute('id');
-      faqFilters[groupId] = e.target.innerHTML;
-      toggleFaqs(groupId);
-    }
+  document.querySelectorAll('#filter-menu select').onchange = e => {
+    const groupId = e.target.getAttribute('id');
+    faqFilters[groupId] = e.target.value;
+    toggleFaqs(groupId);
   };
 
 });
