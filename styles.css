@@ -57,7 +57,7 @@ header {
 header .container {
   padding:10px;
   display:flex;
-  justify-content:space-between;
+  justify-content:stretch;
   gap:20px;
 }
 header .container > * {
@@ -72,14 +72,14 @@ header .container > :first-child {
 header .container > :last-child {
   justify-content:flex-end;
 }
-header .page-logo {
-  height:1.5em;
-  padding: 10px;
-  background: white;
-  border-radius: 5px;
-}
-header .page-title {
+header :first-child {
   font-size:20px;
+}
+header .page-logo {
+  background: white;
+  height:1.3em;
+  padding: 0.3em;
+  border-radius: 0.2em;
 }
 header #search-box {
   box-sizing: border-box;  
@@ -180,3 +180,9 @@ transition:all 0.3s;
   min-height:600px;
 }
 
+/* viewport */
+@media screen and (max-width: 500px) {
+  header .page-title {
+    display:none;
+  }
+}

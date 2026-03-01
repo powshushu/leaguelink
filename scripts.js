@@ -1,4 +1,10 @@
 const helpEmail = 'ps.carreon@gmail.com';
+const userTypes = ['Standard User', 'Admin', 'Admin (LL Initial Setup)'];
+const faqFilters = {
+  search:''
+  , 'user-types':''
+  , tags:''
+};
 
 function popQuestion(faq) {
 
@@ -80,12 +86,31 @@ function popAnswer(Faq) {
   }
 }
 
-function toggleFaq(faqId, show) {
-  const Faq = document.querySelector('.faq[faq-id="' + faqId + '"]');
-  if (show)
-    Faq.classList.remove('hide');
-  else
-    Faq.classList.add('hide');
+function setFaqFilter(prop, value) {
+  faqFilter[prop] = value;
+}
+
+function toggleFaqs(filterProp) {
+  faqs.forEach(faq => {
+
+    let showCount = 0; //Object.assign({}, faqFilters);
+    
+    Object.keys(faqFilters).forEach (prop => {
+      if (prop == 'search') {
+        const arrayStrings = faqFilters[search].toLowerCase().split(' ');
+        if (arrayStrings.every(str => [faq.q, faq.a, faq.tags].join('|').toLowerCase.includes(str))) showCount++;
+      }
+      else
+        if(faq.tags.contains(faqFilters[prop])) showCount++;
+    });
+
+    const Faq = document.querySelector('.faq[faq-id="' + faqId + '"]');
+    if (show)
+      Faq.classList.remove('hide');
+    else
+      Faq.classList.add('hide');
+    
+  });
 }
 
 function hideAnswers() {
@@ -94,8 +119,30 @@ function hideAnswers() {
 
 document.addEventListener('DOMContentLoaded', function() {
   
+  // populate filter menu
+  [...userTags, ...[...new Set(...faqs
+    .map(faq => faq.tags)
+    .filter(tag => !userTypes.contains(tag))
+    .sort((a, b) => a < b)
+  )]].forEach(tag => {
+    let Tag = document.createElement('div');
+    Tag.classList.add('opt');
+    Tag.innerHTML = tag;
+    if (userTypes.contains(tag))
+      document.getElementById('user-types').appendChild(Tag);
+    else
+      document.getElementById('tags').appendChild(Tag);
+  })
+
+
   // populate questions
   faqs.forEach(popQuestion);
+
+  // bind: search
+  document.getElementById('search-box').oninput = e => {
+    faqFilters[search] = e.target.value;
+    toggleFaqs('search');
+  };
 
   // bind: show one answer
   document.querySelectorAll('.faq-box').forEach(qrow => {
@@ -121,13 +168,13 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   };
 
-  // bind: search
-  document.getElementById('search-box').oninput = e => {
-    const arrayStrings = e.target.value.toLowerCase().split(' ');
-    faqs.forEach(faq => toggleFaq(faq.id, arrayStrings.every(str =>
-      faq.q.toLowerCase().includes(str)
-      || faq.a.toLowerCase().includes(str)
-      || faq.tags.toLowerCase().includes(str)
-    )));
+  // bind: click filter menu
+  document.getElementById('filter-menu').onclick = e => {
+    if (e.target.hasClass('opt')) {
+      const groupId = e.target.closest('[id]').getAttribute('id');
+      faqFilter[prop] = value;
+      toggleFaqs(prop);
+    }
   };
+
 });
