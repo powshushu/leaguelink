@@ -133,7 +133,6 @@ document.addEventListener('DOMContentLoaded', function() {
       document.getElementById('tags').appendChild(Tag);
   })
 
-
   // populate questions
   faqs.forEach(popQuestion);
 
@@ -168,9 +167,15 @@ document.addEventListener('DOMContentLoaded', function() {
   };
 
   // bind: click filter menu
-  document.querySelectorAll('#filter-menu select').onchange = e => {
+  document.querySelectorAll('#filter-menu select').forEach(select => select.onchange = e => {
     const groupId = e.target.getAttribute('id');
     faqFilters[groupId] = e.target.value;
+    toggleFaqs(groupId);
+  });
+
+  // bind: reset filter button
+  document.querySelector('#reset-filters').onclick = e => {
+    Object.keys(faqFilters).forEach(key => faqFilters[key] = '');
     toggleFaqs(groupId);
   };
 

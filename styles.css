@@ -61,9 +61,9 @@ header .container {
   gap:20px;
 }
 header .container > * {
-  display:flex;
   flex:1 0 auto;
-  gap:10px;
+  display:flex;
+  gap:5px;
   align-items:center;
 }
 header .container > :first-child {
@@ -103,14 +103,15 @@ header #filter-menu {
   background:var(--red);
   padding-bottom:10px;
 }
-header #filter-menu .title, header #filter-menu .opt {
-  padding:8px 15px;
+header #filter-menu.container > * {
+  flex:0 0 auto;
 }
 header #filter-menu .title {
   font-size:12px;
 }
-header #filter-menu .opt {
-  font-size:16px;
+header #filter-menu select {
+  font-size:14px;
+  padding:0.3em;
 }
 main > :not(:first-child) {
   margin-top:10px;
