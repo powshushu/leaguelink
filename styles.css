@@ -14,7 +14,7 @@
 .button, .button:visited {
   display:inline-block;
   padding: 5px 10px;
-  border:2px solid white;
+  border:1px solid white;
   border-radius: 5px;
   background: var(--red);
   color: white;
@@ -164,20 +164,20 @@ transition:all 0.3s;
 .faq .a .a-opts {
   display:flex;
   gap:10px;
-  align-items:center;
-  justify-content: flex-end;
+  align-items: flex-end;
+  justify-content: space-between;
 }
 .faq .a .more-help {
   font-size:12px;
 }
-.faq .a.content {
+.faq .a .content {
   font-size:16px;
   background-color: var(--bg-red);
   color: #333;
   padding: 20px 10px;
   border-radius: 5px;
 }
-.faq .a.content ol {
+.faq .a .content ol {
   padding:0 0 0 15px;
   margin:0;
   display:flex;

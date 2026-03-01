@@ -54,8 +54,10 @@ function popAnswer(Faq) {
 
   let aArray = faq.a.split('\n');
   if(aArray.length > 1) {
-    A.innerHTML = '<ol>' + aArray.map(i => '<li>' + i + '</li>').join("\r\n") + '</ol>';
-    A.classList.add('content');
+    let Acontent = document.createElement('div');
+    Acontent.classList.add('content');
+    Acontent.innerHTML = '<ol>' + aArray.map(i => '<li>' + i + '</li>').join("\r\n") + '</ol>';
+    A.appendChild(Acontent);
   }
   else {
     const aString = aArray.pop();
@@ -72,16 +74,12 @@ function popAnswer(Faq) {
       iframe.setAttribute('src', aString);
       A.appendChild(iframe);
 
-      // delete header of scribe
-      if (aString.startsWith('https://scribehow.com')) {
-        const iHeader = iframe.querySelector('header');
-        iHeader.parentElement.style('margin-top', '0');
-        iHeader.remove();
-      }
     }
     else {
-      A.innerHTML = aString;
-      A.classList.add('content');
+      let Acontent = document.createElement('div');
+      Acontent.classList.add('content');
+      Acontent.innerHTML = aString;
+      A.appendChild(Acontent);
     }
   }
 }
