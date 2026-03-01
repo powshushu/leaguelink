@@ -68,12 +68,10 @@ header .container > * {
 }
 header .container > :first-child {
   justify-content:flex-start;
+  font-size:20px;
 }
 header .container > :last-child {
   justify-content:flex-end;
-}
-header :first-child {
-  font-size:20px;
 }
 header .page-logo {
   background: white;
@@ -99,7 +97,19 @@ header #filter-icon.open {
   color: blue;
 }
 header #filter-menu {
-  padding:20px;
+  display: flex;
+  justify-content: stretch;
+  background:var(--red);
+  padding-bottom:10px;
+}
+header #filter-menu .title, header #filter-menu .opt {
+  padding:8px 15px;
+}
+header #filter-menu .title {
+  font-size:12px;
+}
+header #filter-menu .opt {
+  font-size:16px;
 }
 main > :not(:first-child) {
   margin-top:10px;

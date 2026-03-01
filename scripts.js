@@ -93,19 +93,19 @@ function setFaqFilter(prop, value) {
 function toggleFaqs(filterProp) {
   faqs.forEach(faq => {
 
-    let showCount = 0; //Object.assign({}, faqFilters);
+    let hide = false; //Object.assign({}, faqFilters);
     
     Object.keys(faqFilters).forEach (prop => {
       if (prop == 'search') {
-        const arrayStrings = faqFilters[search].toLowerCase().split(' ');
-        if (arrayStrings.every(str => [faq.q, faq.a, faq.tags].join('|').toLowerCase.includes(str))) showCount++;
+        const arrayStrings = faqFilters[prop].toLowerCase().split(' ');
+        hide = hide || (faqFilters.search && !arrayStrings.every(str => [faq.q, faq.a, faq.tags].join('|').toLowerCase().includes(str)));
       }
       else
-        if(faq.tags.contains(faqFilters[prop])) showCount++;
+        hide = hide || (faqFilters[prop] && !faq.tags.includes(faqFilters[prop]));
     });
 
-    const Faq = document.querySelector('.faq[faq-id="' + faqId + '"]');
-    if (show)
+    const Faq = document.querySelector('.faq[faq-id="' + faq.id + '"]');
+    if (!hide)
       Faq.classList.remove('hide');
     else
       Faq.classList.add('hide');
@@ -120,11 +120,10 @@ function hideAnswers() {
 document.addEventListener('DOMContentLoaded', function() {
   
   // populate filter menu
-  [...userTypes, ...[...new Set(...faqs
-    .map(faq => faq.tags)
+  [...userTypes, ...[...new Set(faqs.map(faq => faq.tags.split(',')).flat())]
     .filter(tag => !userTypes.includes(tag))
-    .sort((a, b) => a < b)
-  )]].forEach(tag => {
+    .sort()
+  ].forEach(tag => {
     let Tag = document.createElement('div');
     Tag.classList.add('opt');
     Tag.innerHTML = tag;
@@ -140,7 +139,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // bind: search
   document.getElementById('search-box').oninput = e => {
-    faqFilters[search] = e.target.value;
+    faqFilters.search = e.target.value;
     toggleFaqs('search');
   };
 
@@ -170,10 +169,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // bind: click filter menu
   document.getElementById('filter-menu').onclick = e => {
-    if (e.target.hasClass('opt')) {
+    if (e.target.classList.contains('opt')) {
       const groupId = e.target.closest('[id]').getAttribute('id');
-      faqFilter[prop] = value;
-      toggleFaqs(prop);
+      faqFilters[groupId] = e.target.innerHTML;
+      toggleFaqs(groupId);
     }
   };
 
