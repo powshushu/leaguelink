@@ -95,7 +95,7 @@ function toggleFaqs(filterProp) {
 
     let hide = false; //Object.assign({}, faqFilters);
     
-    Object.keys(faqFilters).forEach (prop => {
+    Object.keys(faqFilters).forEach(prop => {
       if (prop == 'search') {
         const arrayStrings = faqFilters[prop].toLowerCase().split(' ');
         hide = hide || (faqFilters.search && !arrayStrings.every(str => [faq.q, faq.a, faq.tags].join('|').toLowerCase().includes(str)));
@@ -176,7 +176,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // bind: reset filter button
   document.querySelector('#reset-filters').onclick = e => {
     Object.keys(faqFilters).forEach(key => faqFilters[key] = '');
-    toggleFaqs(groupId);
+    toggleFaqs();
   };
 
 });
