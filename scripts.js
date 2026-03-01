@@ -122,13 +122,13 @@ document.addEventListener('DOMContentLoaded', function() {
   // populate filter menu
   [...userTypes, ...[...new Set(...faqs
     .map(faq => faq.tags)
-    .filter(tag => !userTypes.contains(tag))
+    .filter(tag => !userTypes.includes(tag))
     .sort((a, b) => a < b)
   )]].forEach(tag => {
     let Tag = document.createElement('div');
     Tag.classList.add('opt');
     Tag.innerHTML = tag;
-    if (userTypes.contains(tag))
+    if (userTypes.includes(tag))
       document.getElementById('user-types').appendChild(Tag);
     else
       document.getElementById('tags').appendChild(Tag);
