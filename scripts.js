@@ -129,7 +129,7 @@ document.addEventListener('DOMContentLoaded', function() {
       document.getElementById('user-types').appendChild(Tag);
     else
       document.getElementById('categories').appendChild(Tag);
-  })
+  });
 
   // populate questions
   faqs.forEach(popQuestion);
@@ -164,11 +164,40 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   };
 
-  // bind: click filter menu
+  // bind: change filter menu dropdowns
   document.querySelectorAll('#filter-menu select').forEach(select => select.onchange = e => {
+    // toggle FAQs
     const groupId = e.target.getAttribute('id');
     faqFilters[groupId] = e.target.value;
     toggleFaqs(groupId);
+
+    // repopulate categories
+    if (groupId == 'categories') {
+      let select = document.getElementById('categories');
+      select.querySelector('option[value != ""]').remove();
+
+      let filteredCats = [...new Set(faqs
+        .filter(faq => faq.tags.includes(e.target.value))
+        .map(faq => faq.tags.split(',')).flat())
+      ];
+
+      filteredCats.filter(tag => !userTypes.includes(tag))
+      .sort()
+      .forEach(tag => {
+        let Tag = document.createElement('option');
+        Tag.innerHTML = tag;
+        Tag.setAttribute('value', tag);
+        select.appendChild(Tag);
+      });
+      
+      if (e.target.value && !filteredCats.includes(e.target.value)) {
+        e.target.value = '';
+        faqFilters.categories = '';
+        toggleFaqs();
+      }
+
+    }
+    
   });
 
   // bind: reset filters button
