@@ -104,7 +104,13 @@ header #filter-menu {
   background:var(--red);
   padding-bottom:10px;
 }
-header #filter-menu.container > * {
+header #filter-menu .container {
+  display: flex;
+  justify-content: flex-end;
+  background:var(--red);
+  padding-bottom:10px;
+}
+header #filter-menu .container > * {
   flex:0 0 auto;
 }
 header #filter-menu .title {
