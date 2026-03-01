@@ -172,32 +172,33 @@ document.addEventListener('DOMContentLoaded', function() {
     toggleFaqs(groupId);
 
     // repopulate categories
-    if (groupId == 'categories') {
-      let select = document.getElementById('categories');
-      select.querySelector('option[value != ""]').remove();
+    if (groupId == 'user-types') {
+      let SelectCat = document.getElementById('categories');
+      SelectCat.querySelectorAll('option:not(:first-child)').forEach(el => el.remove());
 
       let filteredCats = [...new Set(faqs
         .filter(faq => faq.tags.includes(e.target.value))
         .map(faq => faq.tags.split(',')).flat())
       ];
-
+      
+      console.log(filteredCats);
       filteredCats.filter(tag => !userTypes.includes(tag))
       .sort()
       .forEach(tag => {
         let Tag = document.createElement('option');
         Tag.innerHTML = tag;
         Tag.setAttribute('value', tag);
-        select.appendChild(Tag);
+        SelectCat.appendChild(Tag);
       });
       
-      if (e.target.value && !filteredCats.includes(e.target.value)) {
-        e.target.value = '';
-        faqFilters.categories = '';
+      if (faqFilters.categories) {
+        if (filteredCats.includes(faqFilters.categories))
+          SelectCat.value = faqFilters.categories;
+        else
+          faqFilters.categories = '';
         toggleFaqs();
       }
-
     }
-    
   });
 
   // bind: reset filters button
