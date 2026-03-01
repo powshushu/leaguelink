@@ -3,7 +3,7 @@ const userTypes = ['Standard User', 'Admin', 'Admin (LL Initial Setup)'];
 const faqFilters = {
   search:''
   , 'user-types':''
-  , tags:''
+  , categories:''
 };
 
 function popQuestion(faq) {
@@ -128,7 +128,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (userTypes.includes(tag))
       document.getElementById('user-types').appendChild(Tag);
     else
-      document.getElementById('tags').appendChild(Tag);
+      document.getElementById('categories').appendChild(Tag);
   })
 
   // populate questions
@@ -175,11 +175,11 @@ document.addEventListener('DOMContentLoaded', function() {
   document.querySelector('#reset-filters').onclick = e => {
     // reset values
     faqFilters['user-types'] = '';
-    faqFilters['tags'] = '';
+    faqFilters['categories'] = '';
 
     // reset dom
     document.querySelectorAll('#filter-menu select').forEach(el => el.value = '');
-    
+
     toggleFaqs();
   };
 
