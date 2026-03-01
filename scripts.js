@@ -109,7 +109,7 @@ function toggleFaqs(filterProp) {
       Faq.classList.remove('hide');
     else
       Faq.classList.add('hide');
-    
+
   });
 }
 
@@ -120,7 +120,7 @@ function hideAnswers() {
 document.addEventListener('DOMContentLoaded', function() {
   
   // populate filter menu
-  [...userTags, ...[...new Set(...faqs
+  [...userTypes, ...[...new Set(...faqs
     .map(faq => faq.tags)
     .filter(tag => !userTypes.contains(tag))
     .sort((a, b) => a < b)
