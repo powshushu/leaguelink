@@ -55,7 +55,7 @@ header {
   background:var(--blue);
   color:white;
 }
-header .container {
+header .row-1 {
   padding:10px;
   display:flex;
   justify-content:stretch;
@@ -107,8 +107,11 @@ header #filter-menu {
 header #filter-menu .container {
   display: flex;
   justify-content: flex-end;
+  flex-wrap:wrap;
+  gap:5px;
   background:var(--red);
-  padding-bottom:10px;
+  padding:10px;
+
 }
 header #filter-menu .container > * {
   flex:0 0 auto;
