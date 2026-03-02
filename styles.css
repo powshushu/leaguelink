@@ -201,6 +201,15 @@ transition:all 0.3s;
   box-shadow: 3px 3px 3px gray;
   min-height:600px;
 }
+#ask-us {
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  font-size:11px;
+}
+#ask-us .big {
+  font-weight:bold;
+}
 
 /* viewport */
 @media screen and (max-width: 500px) {

@@ -6,29 +6,31 @@ const faqFilters = {
   , categories:''
 };
 
+function createElem(elemType, className, appendTo) {
+  let elem = document.createElement(elemType);
+  if (Array.isArray(className))
+    elem.classList.add(...className);
+  else if (className)
+    elem.classList.add(className);
+  appendTo.appendChild(elem);
+}
+
 function popQuestion(faq) {
 
-  let Faq = document.createElement('div');
-  Faq.classList.add('faq');
+  
+  let Faq = createElem('div', 'faq', document.querySelector('.faq-box'));
   Faq.setAttribute('faq-id', faq.id);
-  document.querySelector('.faq-box').appendChild(Faq);
 
-  let qRow = document.createElement('div');
-  qRow.classList.add('q-row');
-  Faq.appendChild(qRow);
+  let qRow = createElem('div', 'q-row', Faq);
 
   //question
-  let q = document.createElement('div');
-  q.classList.add('q');
+  let q = createElem('div', 'q', qRow);
   q.innerHTML = faq.q;
-  qRow.appendChild(q);
 
   //tags
   faq.tags.split(',').forEach(tag => {
-    let t = document.createElement('div');
-    t.classList.add('tag');
+    let t = createElem('div', 'tag', qRow);
     t.innerHTML = tag;
-    qRow.appendChild(t);
   });
 
 }
@@ -38,48 +40,35 @@ function popAnswer(Faq) {
   const faq = faqs.filter(f => f.id == faqId).pop();
 
   //answer
-  let A = document.createElement('div');
-  A.classList.add('a');
-  Faq.appendChild(A);
+  let A = createElem('div', 'a', Faq);
 
-  let Aopts = document.createElement('div');
-  Aopts.classList.add('a-opts');
-  A.appendChild(Aopts);
+  let Aopts = createElem('div', 'a-opts', A);
   
-  let MoreHelp = document.createElement('a');
+  let MoreHelp = createElem('a', 'more-help', Aopts);
   MoreHelp.setAttribute('href', 'mailto:' + helpEmail + '?subject=LeagueLink Help - FAQ # ' + faqId + '&body=Hi! I need more help with this.%0D%0A%0D%0A[ENTER QUESTION HERE]%0D%0A%0D%0AQuestion: ' + encodeURIComponent(faq.q));
-  MoreHelp.classList.add('more-help');
   MoreHelp.innerHTML = 'Need more help with this? Let us know.';
-  Aopts.appendChild(MoreHelp);
 
   let aArray = faq.a.split('\n');
   if(aArray.length > 1) {
-    let Acontent = document.createElement('div');
-    Acontent.classList.add('content');
+    let Acontent = createElem('div', 'content', A);
     Acontent.innerHTML = '<ol>' + aArray.map(i => '<li>' + i + '</li>').join("\r\n") + '</ol>';
-    A.appendChild(Acontent);
   }
   else {
     const aString = aArray.pop();
     if (aString.startsWith('http')) {
       
-      let NewWindow = document.createElement('a');
+      let NewWindow = createElem('a', 'button', Aopts);
       NewWindow.setAttribute('href', aString);
       NewWindow.setAttribute('target', '_blank');
-      NewWindow.classList.add('button');
       NewWindow.innerHTML = 'Open in New Window';
-      Aopts.appendChild(NewWindow);
 
-      let iframe = document.createElement('iframe');
+      let iframe = createElem('iframe', null, A);
       iframe.setAttribute('src', aString);
-      A.appendChild(iframe);
 
     }
     else {
-      let Acontent = document.createElement('div');
-      Acontent.classList.add('content');
+      let Acontent = createElem('div', 'content', A);
       Acontent.innerHTML = aString;
-      A.appendChild(Acontent);
     }
   }
 }
@@ -211,6 +200,11 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('#filter-menu select').forEach(el => el.value = '');
 
     toggleFaqs();
+  };
+
+  // bind: ask us
+  document.querySelector('#ask-us').onclick = e => {
+    window.open('mailto:' + helpEmail + '?subject=LeagueLink - New Question&body=' + encodeURIComponent('Hi!\n\nI have a new question about using LeagueLink:\n[ENTER QUESTION HERE]'), '_blank');
   };
 
 });
