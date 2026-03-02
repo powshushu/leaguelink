@@ -105,10 +105,7 @@ function toggleFaqs(filterProp) {
 }
 
 function hideAnswers() {
-  document.querySelectorAll('.faq .a').forEach(A => {
-    A.classList.add('fade-in-0');
-    setTimeout(() => A.remove(), 400);
-  });
+  document.querySelectorAll('.faq .a').forEach(A => A.remove());
 }
 
 document.addEventListener('DOMContentLoaded', function() {
