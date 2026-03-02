@@ -92,7 +92,7 @@ header #filter-icon {
   cursor:pointer;
   padding:5px;
   border-radius:5px;
-  border:2px solid white;
+  background:var(--red);
 }
 header #filter-icon.open {
   background: white;
