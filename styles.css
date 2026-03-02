@@ -5,6 +5,9 @@
 .hide {
   display:none !important;
 }
+.fade-in-0 {
+  opacity:0 !important;
+}
 .main-font {
   font-family:Georgia, serif;
 }
@@ -167,7 +170,8 @@ main > :not(:first-child) {
   display: flex;
   flex-direction: column;
   gap: 2px;
-transition:all 0.3s;
+  transition:opacity 0.4s;
+  opacity:1;
 }
 .faq .a .a-opts {
   display:flex;

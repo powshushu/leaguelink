@@ -41,7 +41,7 @@ function popAnswer(Faq) {
   const faq = faqs.filter(f => f.id == faqId).pop();
 
   //answer
-  let A = createElem('div', 'a', Faq);
+  let A = createElem('div', ['a', 'fade-in-0'], Faq);
 
   let Aopts = createElem('div', 'a-opts', A);
   
@@ -72,6 +72,9 @@ function popAnswer(Faq) {
       Acontent.innerHTML = aString;
     }
   }
+
+  //appear
+  setTimeout(() => A.classList.remove('fade-in-0'), 0);
 }
 
 function setFaqFilter(prop, value) {
@@ -102,7 +105,10 @@ function toggleFaqs(filterProp) {
 }
 
 function hideAnswers() {
-  document.querySelectorAll('.faq .a').forEach(a => a.remove());
+  document.querySelectorAll('.faq .a').forEach(A => {
+    A.classList.add('fade-in-0');
+    setTimeout(() => A.remove(), 400);
+  });
 }
 
 document.addEventListener('DOMContentLoaded', function() {
