@@ -206,6 +206,7 @@ transition:all 0.3s;
   bottom:20px;
   right:20px;
   font-size:11px;
+  text-align:right;
 }
 #ask-us .big {
   font-weight:bold;
@@ -215,5 +216,8 @@ transition:all 0.3s;
 @media screen and (max-width: 500px) {
   header .page-title {
     display:none;
+  }
+  #ask-us {
+
   }
 }

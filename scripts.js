@@ -1,5 +1,5 @@
 const helpEmail = 'ps.carreon@gmail.com';
-const userTypes = ['Standard User', 'Admin', 'Admin (LL Initial Setup)'];
+const userTypes = ['Standard User', 'Admin'];
 const faqFilters = {
   search:''
   , 'user-types':''
@@ -13,6 +13,7 @@ function createElem(elemType, className, appendTo) {
   else if (className)
     elem.classList.add(className);
   appendTo.appendChild(elem);
+  return elem;
 }
 
 function popQuestion(faq) {
