@@ -24,6 +24,7 @@
   font-size:12px;
   font-family:Century Gothic, Verdana, Arial;
   text-decoration: none;
+  text-align:center;
 }
 .button:hover {
   cursor:pointer;
