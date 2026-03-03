@@ -152,7 +152,7 @@ main > :not(:first-child) {
 }
 .faq .q {
   color:blue;
-  text-decoration:underline;
+  text-decoration:none;
 }
 .faq .q:hover {
   cursor:pointer;
