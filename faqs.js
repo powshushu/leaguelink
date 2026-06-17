@@ -89,6 +89,9 @@ const faqs = [
 , {id:82, q:"Can I give an admin access to a group of people instead of adding them one person at a time?", a:"No, admin access can only be granted by account.", tags:"Admin"}
 , {id:83, q:"How do I check-in to an event?", a:"Self Check-In (must be at the location using your phone's location): In the app, click the Check-In square, then find your event and click \"Check-In\"\nor find an event coordinator and they can check you in", tags:"Standard User,Calendar"}
 , {id:84, q:"How do check-ins work for an event?", a:"There are two ways to set up an event for checking in: (1) Self Check In and (2) Attendance List Check In. They can both be enabled at the same time. For Self Check, the LeagueLink app uses the member's phone location to allow them to check into an event. For the Attendance List, the event coordinator has an \"Attendance\" square in their app to view the list of attendees, which they can check-in members manually either by viewing an attendance list or by scanning the member's QR code.", tags:"Admin,Calendar"}
-
+, {id:85, q:"How do I start taking membership dues for the upcoming membership year?", a:"VERY IMPORTANT: To begin accepting dues for the next membership year, click Member Mangement > Dues Management.\nAt the bottom, click the button \"Set Member Access To Dues\"\nSelect the year which you want any dues payments to be applied to.\nClick \"Save\"", tags:"Admin,Dues"}
+, {id:86, q:"Why can't I see Assisteens in the directory?", a:"Assisteens are considered youth, and for privacy reasons their information cannot be searchable in the directory.", tags:"Assisteens,Directory,Standard User"}
+, {id:87, q:"I've added/removed members in an Access Group. Why are they still not showing up when I view the Access Group members?", a:"Access Groups are refreshed nightly. Please check your changes the following day.", tags:"Access Groups,Admin"}
+  
 ];
 
